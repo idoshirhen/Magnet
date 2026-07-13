@@ -1,291 +1,1006 @@
-const whatsapp =
-  "https://wa.me/972503385553?text=" +
-  encodeURIComponent(
-    "היי שיר-חן, אשמח לבדוק זמינות לצילום מגנטים באירוע שלי"
-  );
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-const benefits = [
-  [
-    "✦",
-    "צילום שמרגישים בו",
-    "לא רק תמונה ליד הקיר — רגעים טבעיים, שמחים ומחמיאים מכל הרחבה.",
-  ],
-  [
-    "▣",
-    "מגנטים באיכות פרימיום",
-    "הדפסה חדה, צבעים עשירים וחומר איכותי שנשאר יפה גם הרבה אחרי האירוע.",
-  ],
-  [
-    "∞",
-    "נוכחות לאורך האירוע",
-    "עובדים בקצב, מסתובבים בין האורחים ודואגים שאף רגע טוב לא יתפספס.",
-  ],
-];
+  <meta
+    name="description"
+    content="שיר-חן צילום מגנטים לאירועים — צילום חד, הדפסה במקום ושירות לאורך כל האירוע."
+  >
 
-const faqs = [
-  [
-    "מתי מגיעים לאירוע?",
-    "מגיעים לפני קבלת הפנים כדי להתארגן, לבדוק תאורה ולהתחיל לצלם מהרגע שהאורחים נכנסים.",
-  ],
-  [
-    "כמה מגנטים מקבלים?",
-    "מדפיסים ללא הגבלה סבירה לאורך שעות השירות — כשיש תמונה טובה, היא יוצאת כמגנט.",
-  ],
-  [
-    "מקבלים גם את התמונות הדיגיטליות?",
-    "כן. בסיום תקבלו גלריה דיגיטלית מסודרת עם התמונות מהאירוע באיכות גבוהה.",
-  ],
-  [
-    "אפשר לעצב מסגרת אישית?",
-    "בוודאי. המסגרת מותאמת להזמנה, לצבעי האירוע או למיתוג שתבחרו.",
-  ],
-];
+  <title>📸 שיר-חן מגנטים 📸</title>
 
-export default function Home() {
-  return (
-    <main dir="rtl">
-      <header className="nav">
-        <a className="brand" href="#top">
-          <strong>שיר-חן צילום מגנטים</strong>
-        </a>
+  <style>
+    :root {
+      --bg: #0b0b0c;
+      --panel: #121213;
+      --cream: #f4efe6;
+      --muted: #bdb5aa;
+      --gold: #c9a96e;
+      --gold-light: #eed19a;
+      --line: rgba(201, 169, 110, 0.28);
+    }
 
-        <nav aria-label="ניווט ראשי">
-          <a href="#gallery">גלריה</a>
-          <a href="#benefits">מה מקבלים</a>
-          <a href="#reviews">המלצות</a>
-          <a href="#faq">שאלות</a>
-        </nav>
+    * {
+      box-sizing: border-box;
+    }
 
-        <a
-          className="wa outline"
-          href={whatsapp}
-          target="_blank"
-          rel="noreferrer"
-        >
-          WhatsApp <b>◉</b>
-        </a>
-      </header>
+    html {
+      scroll-behavior: smooth;
+    }
 
-      <section className="hero" id="top">
-        <div className="hero-copy">
-          <p className="eyebrow">
-            צילום מגנטים לאירועים • חוויה ללא הפסקה
-          </p>
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--cream);
+      font-family: Arial, "Heebo", sans-serif;
+    }
 
-          <h1>
-            הרגעים שלכם.
-            <br />
-            <em>מודפסים במקום.</em>
-          </h1>
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-          <p className="lead">
-            צילום חד, מגנטים באיכות פרימיום ושירות שנמצא בדיוק איפה שהשמחה
-            קורית — לאורך כל האירוע.
-          </p>
+    main {
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 85% 8%,
+          rgba(201, 169, 110, 0.1),
+          transparent 25%
+        ),
+        var(--bg);
+    }
 
-          <div className="actions">
-            <a className="primary" href="#contact">
-              בדקו אם התאריך פנוי <span>←</span>
-            </a>
+    /* תפריט עליון */
 
-            <a
-              className="secondary"
-              href={whatsapp}
-              target="_blank"
-              rel="noreferrer"
-            >
-              דברו איתי בוואטסאפ
-            </a>
-          </div>
+    .nav {
+      height: 92px;
+      padding: 0 clamp(22px, 5vw, 78px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+      z-index: 5;
+    }
 
-          <div className="trust">
-            <div>
-              <b>איכות</b>
-              <span>הדפסה חדה</span>
-            </div>
+    .brand {
+      display: flex;
+      align-items: baseline;
+      color: var(--gold-light);
+    }
 
-            <div>
-              <b>מהירות</b>
-              <span>מגנטים במקום</span>
-            </div>
+    .brand strong {
+      color: var(--gold-light);
+      font-size: 25px;
+      letter-spacing: 0.02em;
+    }
 
-            <div>
-              <b>שירות</b>
-              <span>עם חיוך כל הערב</span>
-            </div>
-          </div>
+    nav {
+      display: flex;
+      gap: 38px;
+      color: #ddd5ca;
+      font-size: 14px;
+    }
+
+    nav a {
+      position: relative;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      left: 100%;
+      bottom: -8px;
+      height: 1px;
+      background: var(--gold);
+      transition: 0.25s;
+    }
+
+    nav a:hover::after {
+      left: 0;
+    }
+
+    .outline {
+      padding: 13px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 14px;
+    }
+
+    .wa b {
+      margin-right: 8px;
+      color: #37d77a;
+    }
+
+    /* אזור ראשי */
+
+    .hero {
+      min-height: calc(100vh - 92px);
+      max-width: 1500px;
+      margin: auto;
+      padding: clamp(42px, 6vw, 86px) clamp(22px, 5vw, 78px);
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: clamp(40px, 6vw, 90px);
+      align-items: center;
+    }
+
+    .hero-copy {
+      max-width: 650px;
+    }
+
+    .eyebrow {
+      margin: 0 0 24px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.16em;
+    }
+
+    .hero h1,
+    .section h2,
+    .contact h2 {
+      margin: 0;
+      font-size: clamp(52px, 6.2vw, 92px);
+      font-weight: 800;
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+    }
+
+    .hero h1 em,
+    .section h2 em,
+    .contact h2 em {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    .lead {
+      max-width: 590px;
+      margin: 32px 0;
+      color: #d4ccc1;
+      font-size: clamp(18px, 1.55vw, 23px);
+      line-height: 1.75;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .primary,
+    .secondary {
+      padding: 17px 25px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      border-radius: 14px;
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .primary {
+      color: #16120c;
+      background: linear-gradient(135deg, var(--gold-light), #b98b48);
+      box-shadow: 0 12px 35px rgba(201, 169, 110, 0.18);
+    }
+
+    .primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(201, 169, 110, 0.32);
+    }
+
+    .secondary {
+      color: #e5ddd2;
+      border: 1px solid var(--line);
+    }
+
+    .trust {
+      margin-top: 46px;
+      padding-top: 25px;
+      display: flex;
+      border-top: 1px solid var(--line);
+    }
+
+    .trust div {
+      padding: 0 24px;
+      border-left: 1px solid var(--line);
+    }
+
+    .trust div:first-child {
+      padding-right: 0;
+    }
+
+    .trust div:last-child {
+      border: 0;
+    }
+
+    .trust b,
+    .trust span {
+      display: block;
+    }
+
+    .trust b {
+      color: var(--gold-light);
+      font-size: 15px;
+    }
+
+    .trust span {
+      margin-top: 5px;
+      color: #8f887e;
+      font-size: 12px;
+    }
+
+    /* תמונה ראשית */
+
+    .hero-visual {
+      position: relative;
+      height: min(680px, 68vw);
+      min-height: 490px;
+    }
+
+    .hero-visual > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 1px solid var(--line);
+      border-radius: 40px 8px 40px 8px;
+      filter: saturate(0.72) contrast(1.08);
+    }
+
+    .hero-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 40px 8px 40px 8px;
+      box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.35);
+      pointer-events: none;
+    }
+
+    .magnet {
+      position: absolute;
+      z-index: 2;
+      width: 150px;
+      padding: 8px 8px 22px;
+      color: #40372b;
+      background: #eee8dc;
+      box-shadow: 0 14px 35px #000a;
+      transition: 0.3s;
+    }
+
+    .magnet img {
+      width: 100%;
+      height: 105px;
+      object-fit: cover;
+    }
+
+    .magnet span {
+      margin-top: 9px;
+      display: block;
+      font-size: 9px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .m1 {
+      right: -25px;
+      bottom: 25px;
+      transform: rotate(6deg);
+    }
+
+    .m2 {
+      top: 55px;
+      left: -24px;
+      transform: rotate(-7deg);
+    }
+
+    .magnet:hover {
+      transform: rotate(0) scale(1.05);
+    }
+
+    .camera-badge {
+      position: absolute;
+      bottom: 35px;
+      left: -15px;
+      z-index: 3;
+      width: 122px;
+      height: 122px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--gold);
+      background: #111;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    .camera-badge span {
+      color: #eee;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* פס סוגי אירועים */
+
+    .marquee {
+      padding: 20px 4vw;
+      display: flex;
+      justify-content: space-around;
+      gap: 24px;
+      color: #9c9489;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
+    }
+
+    .marquee i {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    /* אזורים כלליים */
+
+    .section {
+      max-width: 1400px;
+      margin: auto;
+      padding: 130px clamp(22px, 5vw, 78px);
+    }
+
+    .section h2 {
+      font-size: clamp(46px, 5vw, 76px);
+    }
+
+    /* יתרונות */
+
+    .cards {
+      margin-top: 60px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .cards article {
+      min-height: 290px;
+      padding: 38px;
+      background: linear-gradient(145deg, #151515, #0f0f10);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      transition: 0.3s;
+    }
+
+    .cards article:hover {
+      transform: translateY(-7px);
+      border-color: var(--gold);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      font-size: 23px;
+    }
+
+    .cards h3 {
+      margin: 35px 0 14px;
+      font-size: 23px;
+    }
+
+    .cards p,
+    .section-head > p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* גלריה */
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 60px;
+    }
+
+    .section-head > p {
+      max-width: 430px;
+    }
+
+    .gallery-grid {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.8fr;
+      grid-template-rows: 280px 280px;
+      gap: 16px;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      filter: saturate(0.8);
+    }
+
+    .gallery-grid .wide {
+      grid-row: 1 / 3;
+    }
+
+    /* המלצה */
+
+    .review {
+      max-width: none;
+      text-align: center;
+      background: #0f0f10;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .quote {
+      height: 55px;
+      display: block;
+      color: var(--gold);
+      font: 100px Georgia;
+    }
+
+    .review blockquote {
+      max-width: 950px;
+      margin: 22px auto;
+      font-size: clamp(25px, 3vw, 45px);
+      line-height: 1.45;
+    }
+
+    .review p {
+      color: var(--gold);
+    }
+
+    /* שאלות נפוצות */
+
+    .faq {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 90px;
+    }
+
+    .questions details {
+      padding: 25px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .questions details:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+
+    summary {
+      display: flex;
+      justify-content: space-between;
+      font-size: 20px;
+      font-weight: bold;
+      list-style: none;
+      cursor: pointer;
+    }
+
+    summary span {
+      color: var(--gold);
+      font-size: 28px;
+    }
+
+    .questions p {
+      max-width: 680px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    /* יצירת קשר */
+
+    .contact {
+      padding: 140px 22px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(201, 169, 110, 0.14),
+          transparent 50%
+        );
+    }
+
+    .contact h2 {
+      font-size: clamp(55px, 7vw, 100px);
+    }
+
+    .contact > p:not(.eyebrow) {
+      max-width: 600px;
+      margin: 30px auto;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .contact .primary {
+      margin-top: 10px;
+    }
+
+    /* תחתית */
+
+    footer {
+      padding: 35px clamp(22px, 5vw, 78px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #89837b;
+      border-top: 1px solid var(--line);
+      font-size: 12px;
+    }
+
+    /* טאבלט */
+
+    @media (max-width: 900px) {
+      .nav {
+        height: 78px;
+      }
+
+      .nav nav {
+        display: none;
+      }
+
+      .outline {
+        padding: 11px 13px;
+        font-size: 0;
+      }
+
+      .outline b {
+        margin: 0;
+        font-size: 19px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 55px;
+      }
+
+      .hero-copy {
+        max-width: none;
+      }
+
+      .hero-visual {
+        height: 570px;
+      }
+
+      .trust div {
+        padding: 0 14px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .cards article {
+        min-height: auto;
+      }
+
+      .section-head {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 360px 210px;
+      }
+
+      .gallery-grid .wide {
+        grid-column: 1 / 3;
+        grid-row: auto;
+      }
+
+      .faq {
+        grid-template-columns: 1fr;
+        gap: 50px;
+      }
+
+      .marquee {
+        justify-content: flex-start;
+        overflow: hidden;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+    }
+
+    /* טלפון */
+
+    @media (max-width: 520px) {
+      .brand strong {
+        font-size: 17px;
+      }
+
+      .hero h1 {
+        font-size: 51px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .actions > a {
+        width: 100%;
+      }
+
+      .trust {
+        justify-content: space-between;
+      }
+
+      .trust div {
+        padding: 0 9px;
+      }
+
+      .hero-visual {
+        height: 440px;
+        min-height: 0;
+      }
+
+      .magnet {
+        width: 112px;
+      }
+
+      .magnet img {
+        height: 75px;
+      }
+
+      .m1 {
+        right: -8px;
+      }
+
+      .m2 {
+        left: -8px;
+      }
+
+      .camera-badge {
+        display: none;
+      }
+
+      .section {
+        padding-top: 90px;
+        padding-bottom: 90px;
+      }
+
+      .gallery-grid {
+        grid-template-rows: 280px 150px;
+      }
+
+      .review {
+        padding-right: 25px;
+        padding-left: 25px;
+      }
+
+      .contact {
+        padding: 100px 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <header class="nav">
+      <a class="brand" href="#top">
+        <strong>שיר-חן צילום מגנטים</strong>
+      </a>
+
+      <nav aria-label="ניווט ראשי">
+        <a href="#gallery">גלריה</a>
+        <a href="#benefits">מה מקבלים</a>
+        <a href="#reviews">המלצות</a>
+        <a href="#faq">שאלות</a>
+      </nav>
+
+      <a
+        class="wa outline"
+        href="https://wa.me/972503385553"
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp <b>◉</b>
+      </a>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          צילום מגנטים לאירועים • חוויה ללא הפסקה
+        </p>
+
+        <h1>
+          הרגעים שלכם.
+          <br>
+          <em>מודפסים במקום.</em>
+        </h1>
+
+        <p class="lead">
+          צילום חד, מגנטים באיכות פרימיום ושירות שנמצא בדיוק איפה
+          שהשמחה קורית — לאורך כל האירוע.
+        </p>
+
+        <div class="actions">
+          <a class="primary" href="#contact">
+            בדקו אם התאריך פנוי <span>←</span>
+          </a>
+
+          <a
+            class="secondary"
+            href="https://wa.me/972503385553"
+            target="_blank"
+            rel="noopener"
+          >
+            דברו איתי בוואטסאפ
+          </a>
         </div>
 
-        <div className="hero-visual">
-          <img
-            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85"
-            alt="זוג שמח באירוע"
-          />
-
-          <div className="magnet m1">
-            <img
-              src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=80"
-              alt="אורחים מחייכים"
-            />
-            <span>רגעים שנשארים</span>
-          </div>
-
-          <div className="magnet m2">
-            <img
-              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80"
-              alt="צילום חתונה"
-            />
-            <span>שיר-חן • מגנטים</span>
-          </div>
-
-          <div className="camera-badge">
-            ◉
-            <span>
-              חיוך. קליק.
-              <br />
-              מגנט.
-            </span>
-          </div>
-        </div>
-      </section>
-
-      <section className="marquee">
-        <span>חתונות</span>
-        <i>✦</i>
-        <span>בר/בת מצווה</span>
-        <i>✦</i>
-        <span>אירועי חברה</span>
-        <i>✦</i>
-        <span>ימי הולדת</span>
-        <i>✦</i>
-        <span>חינות</span>
-      </section>
-
-      <section className="section benefits" id="benefits">
-        <p className="eyebrow">הרבה מעבר למגנט</p>
-
-        <h2>
-          אתם חוגגים.
-          <br />
-          <em>אני דואג לזיכרונות.</em>
-        </h2>
-
-        <div className="cards">
-          {benefits.map(([icon, title, text]) => (
-            <article key={title}>
-              <span className="icon">{icon}</span>
-              <h3>{title}</h3>
-              <p>{text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="section gallery" id="gallery">
-        <div className="section-head">
+        <div class="trust">
           <div>
-            <p className="eyebrow">מהרחבה אל המקרר</p>
-
-            <h2>
-              רגעים אמיתיים.
-              <br />
-              <em>בלי לביים.</em>
-            </h2>
+            <b>איכות</b>
+            <span>הדפסה חדה</span>
           </div>
 
+          <div>
+            <b>מהירות</b>
+            <span>מגנטים במקום</span>
+          </div>
+
+          <div>
+            <b>שירות</b>
+            <span>עם חיוך כל הערב</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img
+          src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85"
+          alt="זוג שמח באירוע"
+        >
+
+        <div class="magnet m1">
+          <img
+            src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=80"
+            alt="אורחים מחייכים"
+          >
+          <span>רגעים שנשארים</span>
+        </div>
+
+        <div class="magnet m2">
+          <img
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80"
+            alt="צילום חתונה"
+          >
+          <span>שיר-חן • מגנטים</span>
+        </div>
+
+        <div class="camera-badge">
+          ◉
+          <span>
+            חיוך. קליק.
+            <br>
+            מגנט.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee">
+      <span>חתונות</span>
+      <i>✦</i>
+      <span>בר/בת מצווה</span>
+      <i>✦</i>
+      <span>אירועי חברה</span>
+      <i>✦</i>
+      <span>ימי הולדת</span>
+      <i>✦</i>
+      <span>חינות</span>
+    </section>
+
+    <section class="section benefits" id="benefits">
+      <p class="eyebrow">הרבה מעבר למגנט</p>
+
+      <h2>
+        אתם חוגגים.
+        <br>
+        <em>אני דואג לזיכרונות.</em>
+      </h2>
+
+      <div class="cards">
+        <article>
+          <span class="icon">✦</span>
+          <h3>צילום שמרגישים בו</h3>
           <p>
-            האנרגיה, האנשים והחיוכים הקטנים שבין לבין — אלה התמונות שהופכות
-            למזכרת הכי אהובה מהאירוע.
+            לא רק תמונה ליד הקיר — רגעים טבעיים, שמחים ומחמיאים
+            מכל הרחבה.
           </p>
-        </div>
+        </article>
 
-        <div className="gallery-grid">
-          <img
-            className="wide"
-            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85"
-            alt="שמחה ברחבת הריקודים"
-          />
+        <article>
+          <span class="icon">▣</span>
+          <h3>מגנטים באיכות פרימיום</h3>
+          <p>
+            הדפסה חדה, צבעים עשירים וחומר איכותי שנשאר יפה גם
+            הרבה אחרי האירוע.
+          </p>
+        </article>
 
-          <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
-            alt="זוג באירוע"
-          />
+        <article>
+          <span class="icon">∞</span>
+          <h3>נוכחות לאורך האירוע</h3>
+          <p>
+            עובדים בקצב, מסתובבים בין האורחים ודואגים שאף רגע
+            טוב לא יתפספס.
+          </p>
+        </article>
+      </div>
+    </section>
 
-          <img
-            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
-            alt="קהל באירוע"
-          />
-        </div>
-      </section>
-
-      <section className="review section" id="reviews">
-        <span className="quote">״</span>
-
-        <blockquote>
-          “מהרגע הראשון היה לנו שקט. התמונות יצאו מדהימות, האורחים לא הפסיקו
-          לקחת מגנטים והיחס היה פשוט מעולה.”
-        </blockquote>
-
-        <p>— זוג מרוצה • חתונת קיץ</p>
-      </section>
-
-      <section className="section faq" id="faq">
+    <section class="section gallery" id="gallery">
+      <div class="section-head">
         <div>
-          <p className="eyebrow">כל מה שרציתם לדעת</p>
+          <p class="eyebrow">מהרחבה אל המקרר</p>
 
           <h2>
-            שאלות
-            <br />
-            <em>נפוצות.</em>
+            רגעים אמיתיים.
+            <br>
+            <em>בלי לביים.</em>
           </h2>
         </div>
 
-        <div className="questions">
-          {faqs.map(([question, answer], index) => (
-            <details key={question} open={index === 0}>
-              <summary>
-                {question}
-                <span>+</span>
-              </summary>
+        <p>
+          האנרגיה, האנשים והחיוכים הקטנים שבין לבין — אלה התמונות
+          שהופכות למזכרת הכי אהובה מהאירוע.
+        </p>
+      </div>
 
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+      <div class="gallery-grid">
+        <img
+          class="wide"
+          src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85"
+          alt="שמחה ברחבת הריקודים"
+        >
 
-      <section className="contact" id="contact">
-        <p className="eyebrow">יש לכם תאריך?</p>
+        <img
+          src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
+          alt="זוג באירוע"
+        >
+
+        <img
+          src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
+          alt="קהל באירוע"
+        >
+      </div>
+    </section>
+
+    <section class="review section" id="reviews">
+      <span class="quote">״</span>
+
+      <blockquote>
+        “מהרגע הראשון היה לנו שקט. התמונות יצאו מדהימות, האורחים
+        לא הפסיקו לקחת מגנטים והיחס היה פשוט מעולה.”
+      </blockquote>
+
+      <p>— זוג מרוצה • חתונת קיץ</p>
+    </section>
+
+    <section class="section faq" id="faq">
+      <div>
+        <p class="eyebrow">כל מה שרציתם לדעת</p>
 
         <h2>
-          בואו נדבר על
-          <br />
-          <em>האירוע שלכם.</em>
+          שאלות
+          <br>
+          <em>נפוצות.</em>
         </h2>
+      </div>
 
-        <p>
-          השאירו הודעה קצרה עם התאריך, המיקום וכל הפרטים ואחזור אליכם .
-        </p>
+      <div class="questions">
+        <details open>
+          <summary>
+            מתי מגיעים לאירוע?
+            <span>+</span>
+          </summary>
 
-        <a
-          className="primary"
-          href={whatsapp}
-          target="_blank"
-          rel="noreferrer"
-        >
-          שלחו לי הודעה בוואטסאפ <span>←</span>
-        </a>
-      </section>
+          <p>
+            מגיעים לפני קבלת הפנים כדי להתארגן, לבדוק תאורה
+            ולהתחיל לצלם מהרגע שהאורחים נכנסים.
+          </p>
+        </details>
 
-      <footer>
-        <a className="brand" href="#top">
-          <strong>שיר-חן צילום מגנטים</strong>
-        </a>
+        <details>
+          <summary>
+            כמה מגנטים מקבלים?
+            <span>+</span>
+          </summary>
 
-        <p>כל הזכויות שמורות ל שיר-חן צילום מגנטים©</p>
+          <p>
+            מדפיסים ללא הגבלה סבירה לאורך שעות השירות — כשיש
+            תמונה טובה, היא יוצאת כמגנט.
+          </p>
+        </details>
 
-        <a href="#top">חזרה למעלה ↑</a>
-      </footer>
-    </main>
-  );
-}
+        <details>
+          <summary>
+            מקבלים גם את התמונות הדיגיטליות?
+            <span>+</span>
+          </summary>
+
+          <p>
+            כן. בסיום תקבלו גלריה דיגיטלית מסודרת עם התמונות
+            מהאירוע באיכות גבוהה.
+          </p>
+        </details>
+
+        <details>
+          <summary>
+            אפשר לעצב מסגרת אישית?
+            <span>+</span>
+          </summary>
+
+          <p>
+            בוודאי. המסגרת מותאמת להזמנה, לצבעי האירוע או למיתוג
+            שתבחרו.
+          </p>
+        </details>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <p class="eyebrow">יש לכם תאריך?</p>
+
+      <h2>
+        בואו נדבר על
+        <br>
+        <em>האירוע שלכם.</em>
+      </h2>
+
+      <p>
+        השאירו הודעה קצרה עם התאריך, המיקום וכל הפרטים ואחזור אליכם.
+      </p>
+
+      <a
+        class="primary"
+        href="https://wa.me/972503385553"
+        target="_blank"
+        rel="noopener"
+      >
+        שלחו לי הודעה בוואטסאפ <span>←</span>
+      </a>
+    </section>
+
+    <footer>
+      <a class="brand" href="#top">
+        <strong>שיר-חן צילום מגנטים</strong>
+      </a>
+
+      <p>כל הזכויות שמורות ל שיר-חן צילום מגנטים©</p>
+
+      <a href="#top">חזרה למעלה ↑</a>
+    </footer>
+  </main>
+</body>
+</html>
