@@ -1,0 +1,291 @@
+const whatsapp =
+  "https://wa.me/972503385553?text=" +
+  encodeURIComponent(
+    "היי שיר-חן, אשמח לבדוק זמינות לצילום מגנטים באירוע שלי"
+  );
+
+const benefits = [
+  [
+    "✦",
+    "צילום שמרגישים בו",
+    "לא רק תמונה ליד הקיר — רגעים טבעיים, שמחים ומחמיאים מכל הרחבה.",
+  ],
+  [
+    "▣",
+    "מגנטים באיכות פרימיום",
+    "הדפסה חדה, צבעים עשירים וחומר איכותי שנשאר יפה גם הרבה אחרי האירוע.",
+  ],
+  [
+    "∞",
+    "נוכחות לאורך האירוע",
+    "עובדים בקצב, מסתובבים בין האורחים ודואגים שאף רגע טוב לא יתפספס.",
+  ],
+];
+
+const faqs = [
+  [
+    "מתי מגיעים לאירוע?",
+    "מגיעים לפני קבלת הפנים כדי להתארגן, לבדוק תאורה ולהתחיל לצלם מהרגע שהאורחים נכנסים.",
+  ],
+  [
+    "כמה מגנטים מקבלים?",
+    "מדפיסים ללא הגבלה סבירה לאורך שעות השירות — כשיש תמונה טובה, היא יוצאת כמגנט.",
+  ],
+  [
+    "מקבלים גם את התמונות הדיגיטליות?",
+    "כן. בסיום תקבלו גלריה דיגיטלית מסודרת עם התמונות מהאירוע באיכות גבוהה.",
+  ],
+  [
+    "אפשר לעצב מסגרת אישית?",
+    "בוודאי. המסגרת מותאמת להזמנה, לצבעי האירוע או למיתוג שתבחרו.",
+  ],
+];
+
+export default function Home() {
+  return (
+    <main dir="rtl">
+      <header className="nav">
+        <a className="brand" href="#top">
+          <strong>שיר-חן צילום מגנטים</strong>
+        </a>
+
+        <nav aria-label="ניווט ראשי">
+          <a href="#gallery">גלריה</a>
+          <a href="#benefits">מה מקבלים</a>
+          <a href="#reviews">המלצות</a>
+          <a href="#faq">שאלות</a>
+        </nav>
+
+        <a
+          className="wa outline"
+          href={whatsapp}
+          target="_blank"
+          rel="noreferrer"
+        >
+          WhatsApp <b>◉</b>
+        </a>
+      </header>
+
+      <section className="hero" id="top">
+        <div className="hero-copy">
+          <p className="eyebrow">
+            צילום מגנטים לאירועים • חוויה ללא הפסקה
+          </p>
+
+          <h1>
+            הרגעים שלכם.
+            <br />
+            <em>מודפסים במקום.</em>
+          </h1>
+
+          <p className="lead">
+            צילום חד, מגנטים באיכות פרימיום ושירות שנמצא בדיוק איפה שהשמחה
+            קורית — לאורך כל האירוע.
+          </p>
+
+          <div className="actions">
+            <a className="primary" href="#contact">
+              בדקו אם התאריך פנוי <span>←</span>
+            </a>
+
+            <a
+              className="secondary"
+              href={whatsapp}
+              target="_blank"
+              rel="noreferrer"
+            >
+              דברו איתי בוואטסאפ
+            </a>
+          </div>
+
+          <div className="trust">
+            <div>
+              <b>איכות</b>
+              <span>הדפסה חדה</span>
+            </div>
+
+            <div>
+              <b>מהירות</b>
+              <span>מגנטים במקום</span>
+            </div>
+
+            <div>
+              <b>שירות</b>
+              <span>עם חיוך כל הערב</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-visual">
+          <img
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85"
+            alt="זוג שמח באירוע"
+          />
+
+          <div className="magnet m1">
+            <img
+              src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=80"
+              alt="אורחים מחייכים"
+            />
+            <span>רגעים שנשארים</span>
+          </div>
+
+          <div className="magnet m2">
+            <img
+              src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80"
+              alt="צילום חתונה"
+            />
+            <span>שיר-חן • מגנטים</span>
+          </div>
+
+          <div className="camera-badge">
+            ◉
+            <span>
+              חיוך. קליק.
+              <br />
+              מגנט.
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section className="marquee">
+        <span>חתונות</span>
+        <i>✦</i>
+        <span>בר/בת מצווה</span>
+        <i>✦</i>
+        <span>אירועי חברה</span>
+        <i>✦</i>
+        <span>ימי הולדת</span>
+        <i>✦</i>
+        <span>חינות</span>
+      </section>
+
+      <section className="section benefits" id="benefits">
+        <p className="eyebrow">הרבה מעבר למגנט</p>
+
+        <h2>
+          אתם חוגגים.
+          <br />
+          <em>אני דואג לזיכרונות.</em>
+        </h2>
+
+        <div className="cards">
+          {benefits.map(([icon, title, text]) => (
+            <article key={title}>
+              <span className="icon">{icon}</span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section gallery" id="gallery">
+        <div className="section-head">
+          <div>
+            <p className="eyebrow">מהרחבה אל המקרר</p>
+
+            <h2>
+              רגעים אמיתיים.
+              <br />
+              <em>בלי לביים.</em>
+            </h2>
+          </div>
+
+          <p>
+            האנרגיה, האנשים והחיוכים הקטנים שבין לבין — אלה התמונות שהופכות
+            למזכרת הכי אהובה מהאירוע.
+          </p>
+        </div>
+
+        <div className="gallery-grid">
+          <img
+            className="wide"
+            src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85"
+            alt="שמחה ברחבת הריקודים"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
+            alt="זוג באירוע"
+          />
+
+          <img
+            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
+            alt="קהל באירוע"
+          />
+        </div>
+      </section>
+
+      <section className="review section" id="reviews">
+        <span className="quote">״</span>
+
+        <blockquote>
+          “מהרגע הראשון היה לנו שקט. התמונות יצאו מדהימות, האורחים לא הפסיקו
+          לקחת מגנטים והיחס היה פשוט מעולה.”
+        </blockquote>
+
+        <p>— זוג מרוצה • חתונת קיץ</p>
+      </section>
+
+      <section className="section faq" id="faq">
+        <div>
+          <p className="eyebrow">כל מה שרציתם לדעת</p>
+
+          <h2>
+            שאלות
+            <br />
+            <em>נפוצות.</em>
+          </h2>
+        </div>
+
+        <div className="questions">
+          {faqs.map(([question, answer], index) => (
+            <details key={question} open={index === 0}>
+              <summary>
+                {question}
+                <span>+</span>
+              </summary>
+
+              <p>{answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <section className="contact" id="contact">
+        <p className="eyebrow">יש לכם תאריך?</p>
+
+        <h2>
+          בואו נדבר על
+          <br />
+          <em>האירוע שלכם.</em>
+        </h2>
+
+        <p>
+          השאירו הודעה קצרה עם התאריך, המיקום וכל הפרטים ואחזור אליכם .
+        </p>
+
+        <a
+          className="primary"
+          href={whatsapp}
+          target="_blank"
+          rel="noreferrer"
+        >
+          שלחו לי הודעה בוואטסאפ <span>←</span>
+        </a>
+      </section>
+
+      <footer>
+        <a className="brand" href="#top">
+          <strong>שיר-חן צילום מגנטים</strong>
+        </a>
+
+        <p>כל הזכויות שמורות ל שיר-חן צילום מגנטים©</p>
+
+        <a href="#top">חזרה למעלה ↑</a>
+      </footer>
+    </main>
+  );
+}
