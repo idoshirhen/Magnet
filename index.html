@@ -9,18 +9,9 @@
     content="שיר-חן צילום מגנטים לאירועים - צילום חד, הדפסה במקום ושירות לאורך כל האירוע."
   >
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-SPTHXQEVVZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-SPTHXQEVVZ');
-</script>
-
   <title>שיר-חן צילום מגנטים</title>
 
+  <!-- פונט -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -29,10 +20,28 @@
     rel="stylesheet"
   >
 
+  <!-- אייקון האתר -->
   <link
     rel="icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>"
   >
+
+  <!-- Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-SPTHXQEVVZ"
+  ></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "G-SPTHXQEVVZ");
+  </script>
 
   <style>
     :root {
@@ -77,7 +86,7 @@
         var(--bg);
     }
 
-    /* תפריט עליון */
+    /* תפריט */
 
     .nav {
       position: relative;
@@ -362,7 +371,7 @@
       line-height: 1.5;
     }
 
-    /* פס סוגי אירועים */
+    /* סוגי אירועים */
 
     .marquee {
       padding: 20px 4vw;
@@ -381,7 +390,7 @@
       font-style: normal;
     }
 
-    /* אזורים כלליים */
+    /* אזורים */
 
     .section {
       max-width: 1400px;
@@ -805,7 +814,7 @@
       </a>
     </header>
 
-    <section class="hero">
+    <section class="hero" data-section="hero">
       <div class="hero-copy">
         <p class="eyebrow">
           צילום מגנטים לאירועים • חוויה ללא הפסקה
@@ -902,7 +911,7 @@
       </div>
     </section>
 
-    <section class="marquee">
+    <section class="marquee" data-section="event_types">
       <span>חתונות</span>
       <i>✦</i>
 
@@ -918,7 +927,11 @@
       <span>חינות</span>
     </section>
 
-    <section class="section benefits" id="benefits">
+    <section
+      class="section benefits"
+      id="benefits"
+      data-section="benefits"
+    >
       <p class="eyebrow">הרבה מעבר למגנט</p>
 
       <h2>
@@ -996,7 +1009,11 @@
       </div>
     </section>
 
-    <section class="section gallery" id="gallery">
+    <section
+      class="section gallery"
+      id="gallery"
+      data-section="gallery"
+    >
       <div class="section-head">
         <div>
           <p class="eyebrow">מהאירוע אל המקרר</p>
@@ -1045,7 +1062,11 @@
       </div>
     </section>
 
-    <section class="review section" id="reviews">
+    <section
+      class="review section"
+      id="reviews"
+      data-section="reviews"
+    >
       <span class="quote">״</span>
 
       <blockquote>
@@ -1056,7 +1077,11 @@
       <p>חגיגות יום הולדת 40 של אבי דודו</p>
     </section>
 
-    <section class="section faq" id="faq">
+    <section
+      class="section faq"
+      id="faq"
+      data-section="faq"
+    >
       <div>
         <p class="eyebrow">כל מה שרציתם לדעת</p>
 
@@ -1117,7 +1142,11 @@
       </div>
     </section>
 
-    <section class="contact" id="contact">
+    <section
+      class="contact"
+      id="contact"
+      data-section="contact"
+    >
       <p class="eyebrow">יש לכם תאריך?</p>
 
       <h2>
@@ -1153,7 +1182,7 @@
       בדיקת זמינות בוואטסאפ
     </a>
 
-    <footer>
+    <footer data-section="footer">
       <a class="brand" href="#top">
         <strong>שיר-חן צילום מגנטים</strong>
       </a>
@@ -1169,15 +1198,99 @@
   </main>
 
   <script>
+    /* תיקון הגלילה והחזרה לראש האתר */
+
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
 
     window.addEventListener("pageshow", function () {
-      if (!window.location.hash || window.location.hash === "#top") {
+      if (
+        !window.location.hash ||
+        window.location.hash === "#top"
+      ) {
         window.scrollTo(0, 0);
       }
     });
+
+    /* מדידת לחיצות על וואטסאפ */
+
+    document
+      .querySelectorAll('a[href*="wa.me"]')
+      .forEach(function (link) {
+        link.addEventListener("click", function () {
+          let buttonLocation = "unknown";
+
+          if (
+            link.classList.contains(
+              "floating-whatsapp"
+            )
+          ) {
+            buttonLocation = "floating_mobile";
+          } else if (link.closest("header")) {
+            buttonLocation = "header";
+          } else if (link.closest(".hero")) {
+            buttonLocation = "hero";
+          } else if (link.closest(".contact")) {
+            buttonLocation = "contact";
+          }
+
+          gtag("event", "whatsapp_click", {
+            button_location: buttonLocation,
+            link_text: link.textContent.trim()
+          });
+        });
+      });
+
+    /* מדידת האזורים שהגולש ראה */
+
+    let lastViewedSection = "top";
+    const viewedSections = new Set();
+
+    const sectionObserver =
+      new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            const sectionName =
+              entry.target.dataset.section;
+
+            lastViewedSection = sectionName;
+
+            if (!viewedSections.has(sectionName)) {
+              viewedSections.add(sectionName);
+
+              gtag("event", "section_view", {
+                section_name: sectionName
+              });
+            }
+          });
+        },
+        {
+          threshold: 0.35
+        }
+      );
+
+    document
+      .querySelectorAll("[data-section]")
+      .forEach(function (section) {
+        sectionObserver.observe(section);
+      });
+
+    /* מדידת האזור האחרון לפני היציאה */
+
+    window.addEventListener(
+      "pagehide",
+      function () {
+        gtag("event", "page_exit", {
+          last_section: lastViewedSection,
+          transport_type: "beacon"
+        });
+      }
+    );
   </script>
 </body>
 </html>
