@@ -11,10 +11,18 @@
 
   <title>שיר-חן צילום מגנטים</title>
 
-<link
-  rel="icon"
-  href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>"
->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📸</text></svg>"
+  >
 
   <style>
     :root {
@@ -37,9 +45,9 @@
 
     body {
       margin: 0;
-      background: var(--bg);
       color: var(--cream);
-      font-family: Arial, "Heebo", sans-serif;
+      background: var(--bg);
+      font-family: "Heebo", Arial, sans-serif;
     }
 
     a {
@@ -61,14 +69,14 @@
     /* תפריט עליון */
 
     .nav {
+      position: relative;
+      z-index: 5;
       height: 92px;
       padding: 0 clamp(22px, 5vw, 78px);
       display: flex;
       align-items: center;
       justify-content: space-between;
       border-bottom: 1px solid var(--line);
-      position: relative;
-      z-index: 5;
     }
 
     .brand {
@@ -126,7 +134,9 @@
       min-height: calc(100vh - 92px);
       max-width: 1500px;
       margin: auto;
-      padding: clamp(42px, 6vw, 86px) clamp(22px, 5vw, 78px);
+      padding:
+        clamp(42px, 6vw, 86px)
+        clamp(22px, 5vw, 78px);
       display: grid;
       grid-template-columns: 1fr 1.05fr;
       gap: clamp(40px, 6vw, 90px);
@@ -141,7 +151,7 @@
       margin: 0 0 24px;
       color: var(--gold);
       font-size: 12px;
-      font-weight: bold;
+      font-weight: 700;
       letter-spacing: 0.16em;
     }
 
@@ -190,13 +200,22 @@
 
     .primary {
       color: #16120c;
-      background: linear-gradient(135deg, var(--gold-light), #b98b48);
-      box-shadow: 0 12px 35px rgba(201, 169, 110, 0.18);
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          #b98b48
+        );
+      box-shadow:
+        0 12px 35px
+        rgba(201, 169, 110, 0.18);
     }
 
     .primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(201, 169, 110, 0.32);
+      box-shadow:
+        0 15px 40px
+        rgba(201, 169, 110, 0.32);
     }
 
     .secondary {
@@ -262,7 +281,9 @@
       position: absolute;
       inset: 0;
       border-radius: 40px 8px 40px 8px;
-      box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.35);
+      box-shadow:
+        inset 0 0 90px
+        rgba(0, 0, 0, 0.35);
       pointer-events: none;
     }
 
@@ -287,7 +308,7 @@
       margin-top: 9px;
       display: block;
       font-size: 9px;
-      font-weight: bold;
+      font-weight: 700;
       text-align: center;
     }
 
@@ -337,6 +358,7 @@
       display: flex;
       justify-content: space-around;
       gap: 24px;
+      overflow: hidden;
       color: #9c9489;
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
@@ -353,14 +375,16 @@
     .section {
       max-width: 1400px;
       margin: auto;
-      padding: 130px clamp(22px, 5vw, 78px);
+      padding:
+        130px
+        clamp(22px, 5vw, 78px);
     }
 
     .section h2 {
       font-size: clamp(46px, 5vw, 76px);
     }
 
-    /* יתרונות */
+    /* מה כלול */
 
     .cards {
       margin-top: 60px;
@@ -372,7 +396,12 @@
     .cards article {
       min-height: 290px;
       padding: 38px;
-      background: linear-gradient(145deg, #151515, #0f0f10);
+      background:
+        linear-gradient(
+          145deg,
+          #151515,
+          #0f0f10
+        );
       border: 1px solid var(--line);
       border-radius: 24px;
       transition: 0.3s;
@@ -488,7 +517,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 20px;
-      font-weight: bold;
+      font-weight: 700;
       list-style: none;
       cursor: pointer;
     }
@@ -533,10 +562,18 @@
       margin-top: 10px;
     }
 
+    /* וואטסאפ צף */
+
+    .floating-whatsapp {
+      display: none;
+    }
+
     /* תחתית */
 
     footer {
-      padding: 35px clamp(22px, 5vw, 78px);
+      padding:
+        35px
+        clamp(22px, 5vw, 78px);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -545,9 +582,37 @@
       font-size: 12px;
     }
 
-    /* טאבלט */
+    /* טאבלט ונייד */
 
     @media (max-width: 900px) {
+      .floating-whatsapp {
+        position: fixed;
+        left: 18px;
+        bottom: 18px;
+        z-index: 100;
+        min-height: 52px;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        color: #082c18;
+        background: #25d366;
+        border:
+          1px solid
+          rgba(255, 255, 255, 0.35);
+        border-radius: 999px;
+        box-shadow:
+          0 12px 32px
+          rgba(0, 0, 0, 0.42);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .floating-whatsapp:active {
+        transform: scale(0.97);
+      }
+
       .nav {
         height: 78px;
       }
@@ -613,7 +678,6 @@
 
       .marquee {
         justify-content: flex-start;
-        overflow: hidden;
       }
 
       footer {
@@ -690,7 +754,7 @@
       }
 
       .contact {
-        padding: 100px 22px;
+        padding: 100px 22px 125px;
       }
     }
 
@@ -743,13 +807,14 @@
         </h1>
 
         <p class="lead">
-          צילום חד, הדפסה טרמית, מגנטים באיכות פרימיום ושירות שנמצא בדיוק איפה
-          שהשמחה קורית לאורך כל האירוע.
+          צילום חד, הדפסה טרמית, מגנטים באיכות פרימיום ושירות
+          שנמצא בדיוק איפה שהשמחה קורית לאורך כל האירוע.
         </p>
 
         <div class="actions">
           <a class="primary" href="#contact">
-            בדקו אם התאריך פנוי <span>←</span>
+            בדקו אם התאריך פנוי
+            <span>←</span>
           </a>
 
           <a
@@ -784,13 +849,21 @@
         <img
           src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1400&q=85"
           alt="זוג שמח באירוע"
+          width="1400"
+          height="1050"
+          fetchpriority="high"
+          decoding="async"
         >
 
         <div class="magnet m1">
           <img
             src="https://images.unsplash.com/photo-1507501336603-6e31db2be093?auto=format&fit=crop&w=500&q=80"
             alt="אורחים מחייכים"
+            width="500"
+            height="375"
+            decoding="async"
           >
+
           <span>רגעים שנשארים</span>
         </div>
 
@@ -798,12 +871,17 @@
           <img
             src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=500&q=80"
             alt="צילום חתונה"
+            width="500"
+            height="375"
+            decoding="async"
           >
+
           <span>שיר-חן • מגנטים</span>
         </div>
 
         <div class="camera-badge">
           ◉
+
           <span>
             חיוך. קליק.
             <br>
@@ -816,12 +894,16 @@
     <section class="marquee">
       <span>חתונות</span>
       <i>✦</i>
+
       <span>בר/בת מצווה</span>
       <i>✦</i>
+
       <span>אירועי חברה</span>
       <i>✦</i>
+
       <span>ימי הולדת</span>
       <i>✦</i>
+
       <span>חינות</span>
     </section>
 
@@ -836,29 +918,68 @@
 
       <div class="cards">
         <article>
-          <span class="icon">✦</span>
-          <h3>צילום שמרגישים בו</h3>
-          <p>
-            לא רק תמונה ליד הקיר - רגעים טבעיים, שמחים ומחמיאים
-            מכל הרחבה.
-          </p>
-        </article>
+          <span class="icon">📸</span>
 
-        <article>
-          <span class="icon">▣</span>
-          <h3>מגנטים באיכות פרימיום</h3>
+          <h3>צילום לאורך האירוע</h3>
+
           <p>
-            הדפסה טרמית חדה, צבעים עשירים וחומר איכותי שנשאר יפה גם
-            הרבה אחרי האירוע.
+            צילום טבעי של האורחים והרגעים השמחים שמתרחשים
+            ברחבה לאורך שעות השירות.
           </p>
         </article>
 
         <article>
           <span class="icon">∞</span>
-          <h3>נוכחות לאורך האירוע</h3>
+
+          <h3>הדפסה ללא הגבלה</h3>
+
           <p>
-            עובדים בקצב, מסתובבים בין האורחים ודואגים שאף רגע
-            טוב לא יתפספס.
+            הדפסת מגנטים ללא הגבלה סבירה לאורך שעות השירות,
+            כדי שכמה שיותר אורחים ייצאו עם מזכרת.
+          </p>
+        </article>
+
+        <article>
+          <span class="icon">▣</span>
+
+          <h3>הדפסה טרמית איכותית</h3>
+
+          <p>
+            הדפסה חדה עם צבעים עשירים וחומר איכותי שנשאר
+            יפה גם הרבה אחרי האירוע.
+          </p>
+        </article>
+
+        <article>
+          <span class="icon">✎</span>
+
+          <h3>מסגרת בעיצוב אישי</h3>
+
+          <p>
+            עיצוב מסגרת שמתאים להזמנה, לצבעי האירוע או
+            למיתוג שבחרתם.
+          </p>
+        </article>
+
+        <article>
+          <span class="icon">☁</span>
+
+          <h3>גלריה דיגיטלית</h3>
+
+          <p>
+            בסיום תקבלו גלריה דיגיטלית מסודרת עם התמונות
+            מהאירוע באיכות גבוהה.
+          </p>
+        </article>
+
+        <article>
+          <span class="icon">✓</span>
+
+          <h3>הגעה והתארגנות מראש</h3>
+
+          <p>
+            הגעה כחצי שעה לפני הזמן שקבענו לצורך התארגנות,
+            בדיקת תאורה והתחלת צילום בזמן.
           </p>
         </article>
       </div>
@@ -877,8 +998,8 @@
         </div>
 
         <p>
-          האנרגיה, האנשים והחיוכים הקטנים שבין לבין - אלה התמונות
-          שהופכות למזכרת הכי אהובה מהאירוע.
+          האנרגיה, האנשים והחיוכים הקטנים שבין לבין -
+          אלה התמונות שהופכות למזכרת הכי אהובה מהאירוע.
         </p>
       </div>
 
@@ -887,16 +1008,28 @@
           class="wide"
           src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85"
           alt="שמחה ברחבת הריקודים"
+          width="1200"
+          height="900"
+          loading="lazy"
+          decoding="async"
         >
 
         <img
           src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=85"
           alt="זוג באירוע"
+          width="900"
+          height="675"
+          loading="lazy"
+          decoding="async"
         >
 
         <img
           src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85"
           alt="קהל באירוע"
+          width="900"
+          height="675"
+          loading="lazy"
+          decoding="async"
         >
       </div>
     </section>
@@ -905,10 +1038,11 @@
       <span class="quote">״</span>
 
       <blockquote>
-        “עידו היה בכל מקום , המגנטים יצאו חדים והאורחים לא הפסיקו להחמיא.”
+        “עידו היה בכל מקום , המגנטים יצאו חדים והאורחים
+        לא הפסיקו להחמיא.”
       </blockquote>
 
-      <p> חגיגות יום הולדת 40 של אבי דודו</p>
+      <p>חגיגות יום הולדת 40 של אבי דודו</p>
     </section>
 
     <section class="section faq" id="faq">
@@ -930,8 +1064,8 @@
           </summary>
 
           <p>
-            מגיעים כחצי שעה לפני הזמן שקבענו כדי להתארגן, לבדוק תאורה
-            ולהתחיל לצלם בול בזמן.
+            מגיעים כחצי שעה לפני הזמן שקבענו כדי להתארגן,
+            לבדוק תאורה ולהתחיל לצלם בול בזמן.
           </p>
         </details>
 
@@ -953,8 +1087,8 @@
           </summary>
 
           <p>
-            כן. בסיום תקבלו גלריה דיגיטלית מסודרת עם התמונות
-            מהאירוע באיכות גבוהה.
+            כן. בסיום תקבלו גלריה דיגיטלית מסודרת עם
+            התמונות מהאירוע באיכות גבוהה.
           </p>
         </details>
 
@@ -965,8 +1099,8 @@
           </summary>
 
           <p>
-            בוודאי. המסגרת מותאמת להזמנה, לצבעי האירוע או למיתוג
-            שתבחרו.
+            בוודאי. המסגרת מותאמת להזמנה, לצבעי האירוע
+            או למיתוג שתבחרו.
           </p>
         </details>
       </div>
@@ -982,7 +1116,8 @@
       </h2>
 
       <p>
-        השאירו הודעה קצרה עם התאריך, המיקום וכל הפרטים ואחזור אליכם.
+        השאירו הודעה קצרה עם התאריך, המיקום וכל הפרטים
+        ואחזור אליכם.
       </p>
 
       <a
@@ -991,18 +1126,34 @@
         target="_blank"
         rel="noopener"
       >
-        שלחו לי הודעה בוואטסאפ <span>←</span>
+        שלחו לי הודעה בוואטסאפ
+        <span>←</span>
       </a>
     </section>
+
+    <a
+      class="floating-whatsapp"
+      href="https://wa.me/972503385553?text=%D7%94%D7%99%D7%99%20%D7%A2%D7%99%D7%93%D7%95%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%91%D7%93%D7%95%D7%A7%20%D7%96%D7%9E%D7%99%D7%A0%D7%95%D7%AA"
+      target="_blank"
+      rel="noopener"
+      aria-label="בדיקת זמינות בוואטסאפ"
+    >
+      <span aria-hidden="true">●</span>
+      בדיקת זמינות בוואטסאפ
+    </a>
 
     <footer>
       <a class="brand" href="#top">
         <strong>שיר-חן צילום מגנטים</strong>
       </a>
 
-      <p>כל הזכויות שמורות ל שיר-חן צילום מגנטים ©</p>
+      <p>
+        כל הזכויות שמורות ל שיר-חן צילום מגנטים ©
+      </p>
 
-      <a href="#top">חזרה למעלה ↑</a>
+      <a href="#top">
+        חזרה למעלה ↑
+      </a>
     </footer>
   </main>
 </body>
