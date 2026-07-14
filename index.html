@@ -41,6 +41,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 0;
     }
 
     body {
@@ -771,7 +772,7 @@
 </head>
 
 <body>
-  <main>
+  <main id="top">
     <header class="nav">
       <a class="brand" href="#top">
         <strong>שיר-חן צילום מגנטים</strong>
@@ -794,7 +795,7 @@
       </a>
     </header>
 
-    <section class="hero" id="top">
+    <section class="hero">
       <div class="hero-copy">
         <p class="eyebrow">
           צילום מגנטים לאירועים • חוויה ללא הפסקה
@@ -1156,5 +1157,17 @@
       </a>
     </footer>
   </main>
+
+  <script>
+    if ("scrollRestoration" in history) {
+      history.scrollRestoration = "manual";
+    }
+
+    window.addEventListener("pageshow", function () {
+      if (!window.location.hash || window.location.hash === "#top") {
+        window.scrollTo(0, 0);
+      }
+    });
+  </script>
 </body>
 </html>
